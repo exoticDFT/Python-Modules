@@ -75,8 +75,11 @@ def open_file(file_name, mode='r', proceed=True):
         f = open(file_name, mode)
         return f
     except FileNotFoundError:
-        cprnt.print_warn(
-            "Error reading file. Did you specify the correct file and path?"
+        error_msg = Template(
+            "There was a problem reading the file:\n${filename}"
+        )
+        cprnt.print_error(
+            error_msg.substitute(filename=os.path.abspath(file_name))
         )
         if not proceed:
             exit_program()
