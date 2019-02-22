@@ -1,4 +1,4 @@
-import CustomPrint as cprnt
+import custom_print as cprnt
 import os
 from string import Template
 
