@@ -1,4 +1,4 @@
-# Python-Basics
+# Python-Modules
 This repository is a collection of simple scripts and utilities that I use throughout my python programs.
 
 There are a few requirements necessary to run some of these modules. Below is the list of requirements, with links to the projects and installation process.
