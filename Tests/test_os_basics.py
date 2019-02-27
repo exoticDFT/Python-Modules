@@ -11,7 +11,7 @@ class OsBasicsTestCases(unittest.TestCase):
         """Have we changed directory locations?"""
         test_dir = tempfile.mkdtemp('TempDir')
         change_dir(test_dir)
-        self.assertEquals(os.getcwd(), test_dir)
+        self.assertEqual(os.getcwd(), test_dir)
       
       
 if __name__ == '__main__':
