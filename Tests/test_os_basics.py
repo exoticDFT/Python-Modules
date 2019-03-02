@@ -15,6 +15,8 @@ class OsBasicsTestCases(unittest.TestCase):
         test_dir = tempfile.mkdtemp()
         change_dir(test_dir)
         self.assertEqual(os.getcwd(), test_dir)
+        change_dir('Tests')
+        self.assertEqual(os.getcwd(), test_dir)
         os.rmdir(test_dir)
       
       
