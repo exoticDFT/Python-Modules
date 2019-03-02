@@ -1,6 +1,7 @@
 import custom_print as cprnt
 import os
 from string import Template
+import sys
 
 def change_dir(dir_path, proceed=True):
     """
@@ -29,21 +30,17 @@ def change_dir(dir_path, proceed=True):
             exit_program()
 
 
-def exit_program(**message):
+def exit_program(msg="Cannot continue reliably. Exiting the program."):
     """
     Exits the program after displaying a message to the user.
     
     Parameters
     ----------
-    message : dictionary, optional
-        Dictionary containing the key 'msg' which has the message you'd like
-        to be displayed instead of the default.
+    msg : string, optional
+        String containing the message you'd like to be displayed.
     """
-    if ('msg' in message):
-        cprnt.print_error(message['msg'])
-    else:
-        cprnt.print_error("Cannot continue reliably. Exiting the program.")
-    quit()
+    cprnt.print_error(msg)
+    sys.exit()
 
 
 def open_file(file_name, mode='r', proceed=True):
@@ -76,7 +73,7 @@ def open_file(file_name, mode='r', proceed=True):
         return f
     except FileNotFoundError:
         error_msg = Template(
-            "There was a problem reading the file:\n${filename}"
+            "There was a problem reading the file:\n  ${filename}"
         )
         cprnt.print_error(
             error_msg.substitute(filename=os.path.abspath(file_name))
